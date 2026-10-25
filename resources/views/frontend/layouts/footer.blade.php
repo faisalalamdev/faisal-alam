@@ -7,7 +7,7 @@
 
         <div class="flex flex-wrap items-center justify-center gap-x-5 gap-y-1">
             <a class="hover:text-brand transition" href="{{ route('home') }}">Home</a>
-            <a class="hover:text-brand transition" href="/about">About</a>
+            <a class="hover:text-brand transition" href="{{ route('about') }}">About</a>
             <a class="hover:text-brand transition" href="/services">Services</a>
             <a class="hover:text-brand transition" href="/projects">Projects</a>
             <a class="hover:text-brand transition" href="/experience">Experience</a>

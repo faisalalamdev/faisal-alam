@@ -7,7 +7,7 @@
 
         <div class="hidden lg:flex items-center gap-1">
             <a class="navlink active" href="{{ route('home') }}">Home</a>
-            <a class="navlink" href="/about">About</a>
+            <a class="navlink" href="{{ route('about') }}">About</a>
             <a class="navlink" href="/services">Services</a>
             <a class="navlink" href="/projects">Projects</a>
             <a class="navlink" href="/experience">Experience</a>

@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <title>Faisal Alam — Full Stack Web Developer | Laravel & WordPress</title>
+    <title>@yield('frontend_title') | Faisal Alam</title>
 
     <meta name="description" content="Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.">
     <meta name="author" content="Faisal Alam">

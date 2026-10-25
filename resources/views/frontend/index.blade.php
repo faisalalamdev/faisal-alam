@@ -1,4 +1,5 @@
 @extends('frontend.dashboard')
+@section('frontend_title', 'Home')
 @section('frontend_contents')
     @include('frontend.home.01_hero')
 
