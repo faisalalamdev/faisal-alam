@@ -17,13 +17,13 @@
             <p class="lead mt-4 reveal" style="--d:120ms">Hi, I'm Faisal Alam from Dhaka, Bangladesh. With 4+ years of experience and 38+ live websites, I handle everything from development and API or payment integration to hosting and deployment.</p>
 
             <div class="flex flex-wrap gap-3 mt-7 reveal" style="--d:180ms">
-                <a href="projects.html" class="btn btn-primary">
+                <a href="{{ route('projects') }}" class="btn btn-primary">
                     View my work
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
                     </svg>
                 </a>
-                <a href="contact.html" class="btn btn-ghost">Contact me</a>
+                <a href="{{ route('contact') }}" class="btn btn-ghost">Contact me</a>
                 <a href="{{ asset('assets/frontend/Faisal_Alam_Resume.pdf') }}" download class="btn btn-ghost">Download CV</a>
             </div>
 

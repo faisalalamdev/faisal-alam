@@ -27,13 +27,13 @@
                 <p>I'm skilled in PHP, Laravel MVC, MySQL, responsive frontend development, WordPress and WooCommerce, and experienced in API integration, payment gateway integration, end-to-end project testing, hosting configuration, deployment and client communication.</p>
                 <p>I've contributed to <b class="text-ink">38+ live websites</b> across corporate, eCommerce, education, travel and B2B industries.</p>
                 <div class="flex flex-wrap gap-3 pt-2">
-                    <a href="contact.html" class="btn btn-primary">
+                    <a href="{{ route('contact') }}" class="btn btn-primary">
                         Work with me
                         <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
                         </svg>
                     </a>
-                    <a href="experience.html" class="btn btn-ghost">See experience</a>
+                    <a href="{{ route('experience') }}" class="btn btn-ghost">See experience</a>
                 </div>
             </div>
         </div>

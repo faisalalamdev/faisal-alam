@@ -46,7 +46,7 @@
         </div>
 
         <p class="mt-6 reveal">
-            <a href="services.html" class="text-brand font-medium hover:underline">See all services →</a>
+            <a href="{{ route('services') }}" class="text-brand font-medium hover:underline">See all services →</a>
         </p>
 
     </div>

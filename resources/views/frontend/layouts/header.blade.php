@@ -25,12 +25,21 @@
                     <path stroke-linecap="round" stroke-linejoin="round" d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z" />
                 </svg>
             </button>
-            <a href="/contact" class="btn btn-primary hidden sm:inline-flex !py-2">Hire me</a>
-            <button class="icon-btn lg:hidden" aria-label="Menu">
+            <a href="{{ route('contact') }}" class="btn btn-primary hidden sm:inline-flex !py-2">Hire me</a>
+            <button class="icon-btn lg:hidden" data-menu-button aria-label="Menu">
                 <svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24">
                     <path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16" />
                 </svg>
             </button>
         </div>
     </nav>
+    <div data-mobile-nav>
+        <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-brand' : '' }}">Home</a>
+        <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'text-brand' : '' }}">About</a>
+        <a href="{{ route('services') }}" class="{{ request()->routeIs('services') ? 'text-brand' : '' }}">Services</a>
+        <a href="{{ route('projects') }}" class="{{ request()->routeIs('projects', 'projects.show') ? 'text-brand' : '' }}">Projects</a>
+        <a href="{{ route('experience') }}" class="{{ request()->routeIs('experience') ? 'text-brand' : '' }}">Experience</a>
+        <a href="{{ route('blog') }}" class="{{ request()->routeIs('blog', 'blog.show') ? 'text-brand' : '' }}">Blog</a>
+        <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'text-brand' : '' }}">Contact</a>
+    </div>
 </header>

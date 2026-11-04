@@ -135,7 +135,7 @@
             <div class="card cta-card p-7 mt-10 text-center reveal">
                 <h3 class="font-semibold text-lg">Ready to start?</h3>
                 <p class="text-sm mt-1">Tell me about your project and I'll reply with next steps.</p>
-                <a href="contact.html" class="btn mt-4">
+                <a href="{{ route('contact') }}" class="btn mt-4">
                     Get in touch
                     <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                         <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />

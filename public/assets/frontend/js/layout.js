@@ -21,9 +21,9 @@
         <div class="flex items-center gap-2">
           <button class="icon-btn" data-theme-toggle aria-label="Toggle theme">${sun}${moon}</button>
           <a href="contact.html" class="btn btn-primary hidden sm:inline-flex !py-2">Hire me</a>
-          <button class="icon-btn lg:hidden" id="menuBtn" aria-label="Menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
+          <button class="icon-btn lg:hidden" data-menu-button aria-label="Menu"><svg class="w-5 h-5" fill="none" stroke="currentColor" stroke-width="1.8" viewBox="0 0 24 24"><path stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg></button>
         </div></nav>
-        <div id="mobileNav">${NAV.map(([u, t]) => `<a href="${u}" class="${act(u) ? 'text-brand' : ''}">${t}</a>`).join('')}</div></header>`;
+        <div data-mobile-nav>${NAV.map(([u, t]) => `<a href="${u}" class="${act(u) ? 'text-brand' : ''}">${t}</a>`).join('')}</div></header>`;
 
     const f = document.getElementById('site-footer');
     if (f) f.outerHTML = `
@@ -40,7 +40,7 @@
     sync();
     document.querySelectorAll('[data-theme-toggle]').forEach(b => b.addEventListener('click', () => {
       root.classList.toggle('dark'); try { localStorage.setItem('theme', root.classList.contains('dark') ? 'dark' : 'light'); } catch (e) {} sync(); }));
-    const mb = document.getElementById('menuBtn'), mn = document.getElementById('mobileNav');
+    const mb = document.querySelector('[data-menu-button]'), mn = document.querySelector('[data-mobile-nav]');
     if (mb) mb.addEventListener('click', () => mn.classList.toggle('open'));
   }
   if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', build); else build();

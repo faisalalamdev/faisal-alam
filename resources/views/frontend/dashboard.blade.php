@@ -16,7 +16,7 @@
 
     <link rel="icon" href="{{ asset('assets/frontend/images/favicon.ico') }}" sizes="any">
     <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/frontend/images/favicon-32.png') }}">
-    <link rel="icon" type="image/png" sizes="16x16" href="assets/images/favicon-16.png">
+    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/frontend/images/favicon-16.png') }}">
     <link rel="apple-touch-icon" href="{{ asset('assets/frontend/images/apple-touch-icon.png') }}">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
