@@ -42,7 +42,7 @@ a.card:hover, .card.hoverable:hover { border-color: rgb(var(--brand) / .45); box
 .icon-btn:hover { border-color: rgb(var(--brand)); color: rgb(var(--brand)); }
 
 /* ===== Header / footer ===== */
-#siteHeader { position: sticky; top: 0; z-index: 50; background: rgb(var(--bg) / .92); backdrop-filter: blur(8px); border-bottom: 1px solid rgb(var(--line)); }
+body > header { position: sticky; top: 0; z-index: 50; background: rgb(var(--bg) / .92); backdrop-filter: blur(8px); border-bottom: 1px solid rgb(var(--line)); }
 .navlink { padding: .4rem .7rem; border-radius: .5rem; font-size: .88rem; font-weight: 500; color: rgb(var(--muted)); transition: color .2s, background .2s; }
 .navlink:hover { color: rgb(var(--ink)); } .navlink.active { color: rgb(var(--ink)); background: rgb(var(--surface2)); }
 #mobileNav { display: none; border-top: 1px solid rgb(var(--line)); background: rgb(var(--bg)); } #mobileNav.open { display: block; }
@@ -84,7 +84,7 @@ details.faq p { margin-top: .6rem; color: rgb(var(--muted)); max-width: 60ch; fo
 .live-dot { display: inline-block; width: 8px; height: 8px; border-radius: 9999px; background: #4caf7d; }
 
 @media (prefers-reduced-motion: reduce) { *, *::before, *::after { transition-duration: .01ms !important; } .reveal { opacity: 1; transform: none; } }
-@media print { #siteHeader { display: none !important; } body { background: #fff; color: #000; } }
+@media print { body > header { display: none !important; } body { background: #fff; color: #000; } }
 
 
 /* ===== Colour layer ===== */
@@ -93,7 +93,7 @@ details.faq p { margin-top: .6rem; color: rgb(var(--muted)); max-width: 60ch; fo
 .btn-primary:hover { filter: none; transform: translateY(-1px); box-shadow: 0 12px 24px -10px rgb(var(--brand) / .8); }
 .btn-ghost:hover { background: rgb(var(--tint1)); }
 .navlink.active { background: rgb(var(--tint1)); color: rgb(var(--brand)); }
-#siteHeader { background: rgb(var(--bg) / .88); }
+body > header { background: rgb(var(--bg) / .88); }
 a.card:hover, .card.hoverable:hover { border-color: rgb(var(--brand) / .5); box-shadow: 0 14px 30px -16px rgb(var(--brand) / .45); }
 
 /* hero */

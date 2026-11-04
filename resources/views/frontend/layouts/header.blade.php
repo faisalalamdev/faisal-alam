@@ -6,13 +6,13 @@
         </a>
 
         <div class="hidden lg:flex items-center gap-1">
-            <a class="navlink active" href="{{ route('home') }}">Home</a>
-            <a class="navlink" href="{{ route('about') }}">About</a>
-            <a class="navlink" href="/services">Services</a>
-            <a class="navlink" href="/projects">Projects</a>
-            <a class="navlink" href="/experience">Experience</a>
-            <a class="navlink" href="/blog">Blog</a>
-            <a class="navlink" href="/contact">Contact</a>
+            <a class="navlink {{ request()->routeIs('home') ? 'active' : '' }}" href="{{ route('home') }}">Home</a>
+            <a class="navlink {{ request()->routeIs('about') ? 'active' : '' }}" href="{{ route('about') }}">About</a>
+            <a class="navlink {{ request()->routeIs('services') ? 'active' : '' }}" href="{{ route('services') }}">Services</a>
+            <a class="navlink {{ request()->routeIs('projects', 'projects.show') ? 'active' : '' }}" href="{{ route('projects') }}">Projects</a>
+            <a class="navlink {{ request()->routeIs('experience') ? 'active' : '' }}" href="{{ route('experience') }}">Experience</a>
+            <a class="navlink {{ request()->routeIs('blog', 'blog.show') ? 'active' : '' }}" href="{{ route('blog') }}">Blog</a>
+            <a class="navlink {{ request()->routeIs('contact') ? 'active' : '' }}" href="{{ route('contact') }}">Contact</a>
         </div>
 
         <div class="flex items-center gap-2">
