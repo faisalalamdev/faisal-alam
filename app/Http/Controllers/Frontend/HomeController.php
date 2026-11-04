@@ -27,6 +27,11 @@ class HomeController extends Controller
         return view('frontend.pages.03_projects');
     }
 
+    public function experience()
+    {
+        return view('frontend.pages.04_experience');
+    }
+
     public function projectDetails(string $slug)
     {
         $projects = $this->projects;

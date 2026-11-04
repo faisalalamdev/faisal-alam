@@ -12,6 +12,8 @@ Route::get('services', [HomeController::class, 'services'])->name('services');
 
 Route::get('projects', [HomeController::class, 'projects'])->name('projects');
 
+Route::get('experience', [HomeController::class, 'experience'])->name('experience');
+
 Route::get('projects/{slug}', [HomeController::class, 'projectDetails'])->name('projects.show');
 
 Route::get('/dashboard', function () {
