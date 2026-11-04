@@ -48,4 +48,15 @@
     });
     searchBox.addEventListener('input', (e) => { q = e.target.value.trim().toLowerCase(); apply(); });
   }
+  /* 404: jump to a page by typing its name */
+  const nfForm = $('[data-not-found-form]');
+  if (nfForm) {
+    const pages = JSON.parse(nfForm.dataset.pages), nfInput = $('[data-not-found-input]'), nfMessage = $('[data-not-found-message]');
+    nfForm.addEventListener('submit', (e) => {
+      e.preventDefault(); const q = nfInput.value.trim().toLowerCase();
+      const key = Object.keys(pages).find(k => q && (k.indexOf(q) === 0 || q.indexOf(k) > -1));
+      if (key) location.href = pages[key]; else nfMessage.textContent = `No page matches “${nfInput.value.trim()}”. Try Projects or Contact.`;
+    });
+  }
+
 })();
