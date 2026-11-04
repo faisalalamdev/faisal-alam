@@ -1,5 +1,5 @@
 @extends('frontend.dashboard')
-@section('frontend_title', 'About')
+@section('frontend_title', 'About | Faisal Alam')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">
