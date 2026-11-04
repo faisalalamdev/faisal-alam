@@ -27,54 +27,26 @@
   if (feat) { feat.innerHTML = P().filter(p => p.featured).slice(0, 4).map(projectCard).join(''); refresh(feat); }
   document.querySelectorAll('[data-project-count]').forEach(e => e.textContent = '38+');
 
-  /* Projects list */
-  const list = $('#projectList');
-  if (list) {
-    const cats = ['All', ...new Set(P().map(p => p.category))];
-    const fbox = $('#filters'); let cur = 'All', q = '';
-    fbox.innerHTML = cats.map((c, i) => `<button class="btn btn-ghost !py-2 !px-5 text-sm filter ${i ? '' : '!bg-brand !text-bg !border-brand'}" data-f="${esc(c)}">${esc(c)} <span class="font-mono text-xs opacity-60">${c === 'All' ? P().length : P().filter(p => p.category === c).length}</span></button>`).join('');
-    list.innerHTML = P().map(projectCard).join(''); refresh(list);
+  /* Projects list: cards are static HTML in the blade view; this only handles filter + search */
+  const grid = $('[data-projects-grid]');
+  if (grid) {
+    const fbox = $('[data-projects-filters]'), searchBox = $('[data-projects-search]');
+    const shown = $('[data-projects-shown]'), empty = $('[data-projects-empty]');
+    let cur = 'All', q = '';
     const apply = () => {
       let n = 0;
-      list.querySelectorAll('[data-cat]').forEach(c => { const ok = (cur === 'All' || c.dataset.cat === cur) && (!q || c.dataset.title.includes(q)); c.classList.toggle('hidden', !ok); if (ok) n++; });
-      $('#shown').textContent = n; $('#empty').classList.toggle('hidden', n > 0);
+      grid.querySelectorAll('[data-category]').forEach(c => {
+        const ok = (cur === 'All' || c.dataset.category === cur) && (!q || c.dataset.search.includes(q));
+        c.classList.toggle('hidden', !ok); if (ok) n++;
+      });
+      shown.textContent = n; empty.classList.toggle('hidden', n > 0);
     };
-    fbox.addEventListener('click', (e) => { const b = e.target.closest('.filter'); if (!b) return; cur = b.dataset.f;
-      fbox.querySelectorAll('.filter').forEach(x => x.classList.toggle('!bg-brand', x === b)); fbox.querySelectorAll('.filter').forEach(x => { x.classList.toggle('!text-bg', x === b); x.classList.toggle('!border-brand', x === b); }); apply(); });
-    $('#search').addEventListener('input', (e) => { q = e.target.value.trim().toLowerCase(); apply(); });
-    apply();
-  }
-
-  /* Project detail */
-  const det = $('#projectDetail');
-  if (det) {
-    const slug = new URLSearchParams(location.search).get('slug');
-    const idx = P().findIndex(p => p.slug === slug); const p = P()[idx >= 0 ? idx : 0];
-    if (!p) { det.innerHTML = '<p class="text-muted">No projects yet.</p>'; } else {
-      document.title = `${p.title} — Faisal Alam`;
-      const prev = P()[(idx - 1 + P().length) % P().length], next = P()[(idx + 1) % P().length];
-      det.innerHTML = `
-      <a href="projects.html" class="inline-flex items-center gap-2 text-sm text-muted hover:text-brand transition mb-8">← All projects</a>
-      <div class="flex flex-wrap gap-2 mb-5 reveal"><span class="chip cat-${esc(p.category.toLowerCase())}">${esc(p.category)}</span><span class="chip chip-n">${esc(p.industry)}</span></div>
-      <h1 class="h1">${esc(p.title)}</h1>
-      <p class="reveal text-muted text-base max-w-2xl mt-4">${esc(p.summary)}</p>
-      <div class="flex flex-wrap gap-3 mt-8 reveal"><a class="btn btn-primary" target="_blank" rel="noopener" href="${esc(p.url)}"><span>Visit live site</span>${arrow}</a><a class="btn btn-ghost" href="contact.html">Start a similar project</a></div>
-      <div class="mt-10 reveal"><div><div class="shot shadow-soft" data-shot-host><div class="shot-bar"><i></i><i></i><i></i><span>${esc(host(p.url))}</span></div>
-        <div class="shot-view tall"><img src="${esc(p.image || NOIMG)}" onerror="this.onerror=null;this.src='${NOIMG}'" alt="${esc(p.title)} full page preview"><span class="shot-hint">hover to scroll ↓</span></div></div></div></div>
-      <div class="grid md:grid-cols-[1.6fr_1fr] gap-10 mt-16">
-        <div class="reveal"><p class="eyebrow mb-3">// Overview</p><p class="text-base text-muted">${esc(p.description)}</p>
-          <p class="eyebrow mt-10 mb-4">// What's inside</p><ul class="grid sm:grid-cols-2 gap-3">${p.features.map(f => `<li class="card !rounded-2xl px-4 py-3 text-sm flex gap-3 items-start"><span class="text-brand mt-0.5">✦</span>${esc(f)}</li>`).join('')}</ul></div>
-        <aside class="card p-6 h-fit reveal" data-reveal="right"><dl class="space-y-5 text-sm">
-          <div><dt class="font-mono text-xs text-muted">ROLE</dt><dd class="mt-1">${esc(p.role)}</dd></div>
-          <div><dt class="font-mono text-xs text-muted">INDUSTRY</dt><dd class="mt-1">${esc(p.industry)}</dd></div>
-          <div><dt class="font-mono text-xs text-muted">LIVE SITE</dt><dd class="mt-1"><a class="text-brand hover:underline break-all" target="_blank" rel="noopener" href="${esc(p.url)}">${esc(host(p.url))}</a></dd></div>
-          <div><dt class="font-mono text-xs text-muted mb-2">STACK</dt><dd class="flex flex-wrap gap-2 chips">${p.stack.map(s => `<span class="chip">${esc(s)}</span>`).join('')}</dd></div></dl></aside>
-      </div>
-      <div class="grid sm:grid-cols-2 gap-4 mt-14">
-        <a href="project.html?slug=${encodeURIComponent(prev.slug)}" class="card spot p-6 reveal"><p class="font-mono text-xs text-muted">← PREVIOUS</p><p class="text-lg font-semibold mt-2">${esc(prev.title)}</p></a>
-        <a href="project.html?slug=${encodeURIComponent(next.slug)}" class="card spot p-6 text-right reveal"><p class="font-mono text-xs text-muted">NEXT →</p><p class="text-lg font-semibold mt-2">${esc(next.title)}</p></a></div>`;
-      refresh(det);
-    }
+    fbox.addEventListener('click', (e) => {
+      const b = e.target.closest('.filter'); if (!b) return; cur = b.dataset.filter;
+      fbox.querySelectorAll('.filter').forEach(x => ['!bg-brand', '!text-bg', '!border-brand'].forEach(k => x.classList.toggle(k, x === b)));
+      apply();
+    });
+    searchBox.addEventListener('input', (e) => { q = e.target.value.trim().toLowerCase(); apply(); });
   }
 
   /* Blog list */

@@ -10,6 +10,10 @@ Route::get('about', [HomeController::class, 'about'])->name('about');
 
 Route::get('services', [HomeController::class, 'services'])->name('services');
 
+Route::get('projects', [HomeController::class, 'projects'])->name('projects');
+
+Route::get('projects/{slug}', [HomeController::class, 'projectDetails'])->name('projects.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
@@ -24,4 +28,4 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+require __DIR__ . '/auth.php';
