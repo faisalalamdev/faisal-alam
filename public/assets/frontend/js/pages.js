@@ -48,38 +48,4 @@
     });
     searchBox.addEventListener('input', (e) => { q = e.target.value.trim().toLowerCase(); apply(); });
   }
-
-  /* Blog list */
-  const bl = $('#blogList');
-  if (bl) {
-    const posts = window.POSTS || [];
-    bl.innerHTML = posts.map((p, i) => `
-      <a href="post.html?slug=${encodeURIComponent(p.slug)}" class="card spot group block reveal ${i === 0 ? 'md:col-span-2 md:grid md:grid-cols-2' : ''}" style="--d:${(i % 2) * 90}ms">
-        <div class="overflow-hidden ${i === 0 ? 'h-full' : ''}"><img class="w-full ${i === 0 ? 'h-full object-cover' : 'aspect-[16/9] object-cover'} group-hover:scale-105 transition duration-700" src="${esc(p.image || NOIMG)}" onerror="this.onerror=null;this.src='${NOIMG}'" alt="${esc(p.title)}" loading="lazy"></div>
-        <div class="p-7 flex flex-col justify-center"><div class="flex items-center gap-3 mb-3"><span class="chip">${esc(p.kind)}</span><span class="text-xs font-mono text-muted">${esc(p.date)} · ${esc(p.read)} read</span></div>
-          <h3 class="${i === 0 ? 'text-2xl' : 'text-lg'} font-semibold tracking-tight">${esc(p.title)}</h3><p class="text-muted mt-3 text-sm">${esc(p.excerpt)}</p>
-          <span class="mt-5 inline-flex items-center gap-2 text-brand text-sm font-medium">Read article ${arrow}</span></div></a>`).join('');
-    refresh(bl);
-  }
-
-  /* Blog post */
-  const pd = $('#postDetail');
-  if (pd) {
-    const posts = window.POSTS || []; const slug = new URLSearchParams(location.search).get('slug');
-    const p = posts.find(x => x.slug === slug) || posts[0];
-    if (p) {
-      document.title = `${p.title} — Faisal Alam`;
-      const blocks = p.body.map(b => b.t === 'h' ? `<h2>${esc(b.c)}</h2>` : b.t === 'ul' ? `<ul>${b.c.map(x => `<li>${esc(x)}</li>`).join('')}</ul>` : b.t === 'code' ? `<pre><code>${esc(b.c)}</code></pre>` : `<p>${esc(b.c)}</p>`).join('');
-      const others = posts.filter(x => x.slug !== p.slug).slice(0, 2);
-      pd.innerHTML = `
-      <a href="blog.html" class="inline-flex items-center gap-2 text-sm text-muted hover:text-brand transition mb-8">← All articles</a>
-      <div class="flex items-center gap-3 mb-5 reveal"><span class="chip">${esc(p.kind)}</span><span class="text-xs font-mono text-muted">${esc(p.date)} · ${esc(p.read)} read</span></div>
-      <h1 class="h1">${esc(p.title)}</h1>
-      <img class="reveal w-full rounded-3xl border border-line mt-10 aspect-[16/8] object-cover" src="${esc(p.image || NOIMG)}" onerror="this.onerror=null;this.src='${NOIMG}'" alt="${esc(p.title)}">
-      <article class="prose reveal mt-10 max-w-2xl mx-auto">${blocks}</article>
-      <div class="max-w-2xl mx-auto mt-16 card p-6 reveal flex flex-wrap items-center justify-between gap-4"><p class="font-semibold">Need help with a project like this?</p><a href="contact.html" class="btn btn-primary"><span>Let's talk</span></a></div>
-      <div class="grid sm:grid-cols-2 gap-4 mt-16">${others.map(o => `<a href="post.html?slug=${encodeURIComponent(o.slug)}" class="card spot p-6 reveal"><p class="font-mono text-xs text-muted">${esc(o.kind).toUpperCase()}</p><p class="text-base font-semibold mt-2">${esc(o.title)}</p></a>`).join('')}</div>`;
-      refresh(pd);
-    }
-  }
 })();

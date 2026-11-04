@@ -16,6 +16,10 @@ Route::get('experience', [HomeController::class, 'experience'])->name('experienc
 
 Route::get('projects/{slug}', [HomeController::class, 'projectDetails'])->name('projects.show');
 
+Route::get('blog', [HomeController::class, 'blog'])->name('blog');
+
+Route::get('blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.show');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
