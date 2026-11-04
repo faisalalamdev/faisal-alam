@@ -29,12 +29,12 @@
     });
   }
 
-  const form = $('#contactForm');
+  const form = $('[data-contact-form]');
   if (form) form.addEventListener('submit', (e) => {
     e.preventDefault(); const f = new FormData(form);
     const body = `${f.get('message')}\n\n— ${f.get('name')} (${f.get('email')})${f.get('budget') ? '\nBudget: ' + f.get('budget') : ''}`;
     location.href = `mailto:${window.SITE.email}?subject=${encodeURIComponent(f.get('subject') || 'Project inquiry')}&body=${encodeURIComponent(body)}`;
-    const n = $('#formNote'); if (n) n.textContent = 'Opening your email app…';
+    const n = $('[data-contact-note]'); if (n) n.textContent = 'Opening your email app…';
   });
 
   window.Fx = { observe, initShots };

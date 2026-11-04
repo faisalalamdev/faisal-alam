@@ -20,6 +20,8 @@ Route::get('blog', [HomeController::class, 'blog'])->name('blog');
 
 Route::get('blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.show');
 
+Route::get('contact', [HomeController::class, 'contact'])->name('contact');
+
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
