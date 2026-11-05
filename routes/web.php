@@ -4,24 +4,31 @@ use App\Http\Controllers\Frontend\HomeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
+/*
+|--------------------------------------------------------------------------
+| Frontend
+|--------------------------------------------------------------------------
+*/
 
-Route::get('about', [HomeController::class, 'about'])->name('about');
+Route::controller(HomeController::class)->group(function () {
+    Route::get('/', 'index')->name('home');
+    Route::get('about', 'about')->name('about');
+    Route::get('services', 'services')->name('services');
+    Route::get('experience', 'experience')->name('experience');
+    Route::get('contact', 'contact')->name('contact');
 
-Route::get('services', [HomeController::class, 'services'])->name('services');
+    Route::get('projects', 'projects')->name('projects');
+    Route::get('projects/{slug}', 'projectDetails')->name('projects.show');
 
-Route::get('projects', [HomeController::class, 'projects'])->name('projects');
+    Route::get('blog', 'blog')->name('blog');
+    Route::get('blog/{slug}', 'blogDetails')->name('blog.show');
+});
 
-Route::get('experience', [HomeController::class, 'experience'])->name('experience');
-
-Route::get('projects/{slug}', [HomeController::class, 'projectDetails'])->name('projects.show');
-
-Route::get('blog', [HomeController::class, 'blog'])->name('blog');
-
-Route::get('blog/{slug}', [HomeController::class, 'blogDetails'])->name('blog.show');
-
-Route::get('contact', [HomeController::class, 'contact'])->name('contact');
-
+/*
+|--------------------------------------------------------------------------
+| User & Admin
+|--------------------------------------------------------------------------
+*/
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified'])->name('dashboard');
