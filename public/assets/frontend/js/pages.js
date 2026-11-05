@@ -1,4 +1,4 @@
-/* Page behaviours: projects filter + search, 404 page finder. */
+/* Page behaviours: projects filter + search, 404 page finder, 503 maintenance. */
 (function () {
   const $ = (s, c = document) => c.querySelector(s);
 
@@ -32,6 +32,29 @@
       const key = Object.keys(pages).find(k => q && (k.indexOf(q) === 0 || q.indexOf(k) > -1));
       if (key) location.href = pages[key]; else nfMessage.textContent = `No page matches “${nfInput.value.trim()}”. Try Projects or Contact.`;
     });
+  }
+
+  /* 503 maintenance: animated steps + optional countdown (set data-eta on [data-maint-countdown]) */
+  const steps = [...document.querySelectorAll('[data-maint-steps] .step')];
+  if (steps.length) {
+    let i = 0;
+    const tick = () => {
+      steps.forEach((s, k) => { s.classList.toggle('done', k < i); s.classList.toggle('active', k === i); });
+      i = (i + 1) % (steps.length + 1);
+      if (i === 0) steps.forEach(s => s.classList.remove('done', 'active'));
+    };
+    tick(); setInterval(tick, 1800);
+  }
+  const countdown = $('[data-maint-countdown]');
+  const eta = countdown && countdown.dataset.eta ? new Date(countdown.dataset.eta).getTime() : 0;
+  if (eta) {
+    countdown.classList.remove('hidden');
+    const set = (k, v) => { $('[data-maint-' + k + ']').textContent = v; };
+    const run = () => {
+      const s = Math.floor(Math.max(0, eta - Date.now()) / 1000);
+      set('days', Math.floor(s / 86400)); set('hours', Math.floor(s % 86400 / 3600)); set('minutes', Math.floor(s % 3600 / 60)); set('seconds', s % 60);
+    };
+    run(); setInterval(run, 1000);
   }
 
 })();
