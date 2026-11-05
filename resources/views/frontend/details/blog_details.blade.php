@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', $post['title'] . ' | Faisal Alam')
+@section('frontend_description', $post['excerpt'])
 @section('frontend_contents')
 
     <section class="pt-10 pb-10">

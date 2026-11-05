@@ -7,11 +7,17 @@
 
     <title>@yield('frontend_title')</title>
 
-    <meta name="description" content="Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.">
+    <meta name="description" content="@yield('frontend_description', 'Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.')">
     <meta name="author" content="Faisal Alam">
-    <meta property="og:title" content="Faisal Alam — Full Stack Web Developer | Laravel & WordPress">
-    <meta property="og:description" content="Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.">
+    <meta name="robots" content="@yield('frontend_robots', 'index, follow')">
+    <link rel="canonical" href="{{ url()->current() }}">
+    <meta property="og:title" content="@yield('frontend_title')">
+    <meta property="og:description" content="@yield('frontend_description', 'Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.')">
     <meta property="og:type" content="website">
+    <meta property="og:url" content="{{ url()->current() }}">
+    <meta property="og:site_name" content="Faisal Alam">
+    <meta property="og:image" content="{{ asset('assets/frontend/images/profile.jpg') }}">
+    <meta name="twitter:card" content="summary_large_image">
     <meta name="theme-color" content="#161626">
 
     <link rel="icon" href="{{ asset('assets/frontend/images/favicon.ico') }}" sizes="any">

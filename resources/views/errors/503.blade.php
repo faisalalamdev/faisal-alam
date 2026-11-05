@@ -9,7 +9,8 @@
 
     <meta name="description" content="Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.">
     <meta name="author" content="Faisal Alam">
-    <meta property="og:title" content="Faisal Alam — Full Stack Web Developer | Laravel & WordPress">
+    <meta name="robots" content="noindex, nofollow">
+    <meta property="og:title" content="Under Maintenance | Faisal Alam">
     <meta property="og:description" content="Faisal Alam is a Full Stack Web Developer in Dhaka, Bangladesh with 4+ years of experience building Laravel and WordPress websites, API and payment gateway integrations. 38+ live websites delivered.">
     <meta property="og:type" content="website">
     <meta name="theme-color" content="#161626">

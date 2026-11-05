@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Services | Faisal Alam')
+@section('frontend_description', 'Laravel development, WordPress websites, API and payment gateway integration, testing and deployment services by Faisal Alam.')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">

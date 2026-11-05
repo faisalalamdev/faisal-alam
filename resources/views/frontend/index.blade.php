@@ -1,6 +1,7 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Faisal Alam — Full Stack Web Developer | Laravel & WordPress')
 @section('frontend_contents')
+
     @include('frontend.home.01_hero')
 
     @include('frontend.home.02_years_experience')
@@ -14,4 +15,5 @@
     @include('frontend.home.06_process')
 
     @include('frontend.home.07_call_to_action')
+
 @endsection

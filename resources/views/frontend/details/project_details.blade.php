@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', $project['title'] . ' | Faisal Alam')
+@section('frontend_description', $project['summary'])
 @section('frontend_contents')
 
     <section class="pt-10 pb-10">

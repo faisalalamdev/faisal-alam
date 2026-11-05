@@ -195,13 +195,7 @@ class HomeController extends Controller
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Create the order with status pending and generate a unique transaction ID.',
-                        'Send the customer to the gateway with that transaction ID, amount and callback URLs.',
-                        'On the success callback, call the gateway validation API with the validation ID.',
-                        'Only mark the order paid if the status, transaction ID and amount all match your record.',
-                        'Handle fail, cancel and IPN callbacks too, and make every handler idempotent.',
-                    ],
+                    'c' => ['Create the order with status pending and generate a unique transaction ID.', 'Send the customer to the gateway with that transaction ID, amount and callback URLs.', 'On the success callback, call the gateway validation API with the validation ID.', 'Only mark the order paid if the status, transaction ID and amount all match your record.', 'Handle fail, cancel and IPN callbacks too, and make every handler idempotent.'],
                 ],
                 [
                     't' => 'h',
@@ -210,19 +204,19 @@ class HomeController extends Controller
                 [
                     't' => 'code',
                     'c' => '$response = Http::get($validatorUrl, [
-    \'val_id\'       => $request->val_id,
-    \'store_id\'     => config(\'services.sslcommerz.store_id\'),
-    \'store_passwd\' => config(\'services.sslcommerz.store_password\'),
-    \'format\'       => \'json\',
-])->json();
+                    \'val_id\'       => $request->val_id,
+                    \'store_id\'     => config(\'services.sslcommerz.store_id\'),
+                    \'store_passwd\' => config(\'services.sslcommerz.store_password\'),
+                    \'format\'       => \'json\',
+                    ])->json();
 
-$valid = in_array($response[\'status\'] ?? \'\', [\'VALID\', \'VALIDATED\'])
-    && $response[\'tran_id\'] === $order->tran_id
-    && (float) $response[\'amount\'] === (float) $order->amount;
+                $valid = in_array($response[\'status\'] ?? \'\', [\'VALID\', \'VALIDATED\'])
+                    && $response[\'tran_id\'] === $order->tran_id
+                    && (float) $response[\'amount\'] === (float) $order->amount;
 
-if ($valid && $order->status === \'pending\') {
-    $order->update([\'status\' => \'paid\']);
-}',
+                if ($valid && $order->status === \'pending\') {
+                    $order->update([\'status\' => \'paid\']);
+                }',
                 ],
                 [
                     't' => 'h',
@@ -230,12 +224,7 @@ if ($valid && $order->status === \'pending\') {
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Keep store credentials in .env and read them through config files.',
-                        'Use the sandbox URLs while testing and switch to live only at launch.',
-                        'Log every callback payload so disputes are easy to investigate.',
-                        'Test success, failure, cancellation and a double callback before going live.',
-                    ],
+                    'c' => ['Keep store credentials in .env and read them through config files.', 'Use the sandbox URLs while testing and switch to live only at launch.', 'Log every callback payload so disputes are easy to investigate.', 'Test success, failure, cancellation and a double callback before going live.'],
                 ],
                 [
                     't' => 'p',
@@ -263,22 +252,16 @@ if ($valid && $order->status === \'pending\') {
                 [
                     't' => 'code',
                     'c' => '$countries = Cache::remember(\'countries\', now()->addDay(), function () {
-    return Http::timeout(8)
-        ->retry(2, 200)
-        ->get(config(\'services.countries.url\'))
-        ->throw()
-        ->json();
-});',
+                    return Http::timeout(8)
+                        ->retry(2, 200)
+                        ->get(config(\'services.countries.url\'))
+                        ->throw()
+                        ->json();
+                });',
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Always set a timeout so a slow API cannot freeze your page.',
-                        'Retry briefly for transient failures, but never retry non-idempotent writes blindly.',
-                        'Cache data that rarely changes, such as country or airport lists.',
-                        'Keep the API URL and keys in config, never hard-coded.',
-                        'Map the response into your own structure so a provider change touches one place.',
-                    ],
+                    'c' => ['Always set a timeout so a slow API cannot freeze your page.', 'Retry briefly for transient failures, but never retry non-idempotent writes blindly.', 'Cache data that rarely changes, such as country or airport lists.', 'Keep the API URL and keys in config, never hard-coded.', 'Map the response into your own structure so a provider change touches one place.'],
                 ],
                 [
                     't' => 'h',
@@ -309,12 +292,7 @@ if ($valid && $order->status === \'pending\') {
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Which destination and which course?',
-                        'Can I afford it, and what scholarships or loans exist?',
-                        'What does the visa process involve?',
-                        'How do I contact someone today?',
-                    ],
+                    'c' => ['Which destination and which course?', 'Can I afford it, and what scholarships or loans exist?', 'What does the visa process involve?', 'How do I contact someone today?'],
                 ],
                 [
                     't' => 'h',
@@ -353,11 +331,7 @@ if ($valid && $order->status === \'pending\') {
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Every form submits, validates and delivers email.',
-                        'Every menu link, button and redirect goes where it should.',
-                        'Search, filters and pagination behave with empty and large results.',
-                    ],
+                    'c' => ['Every form submits, validates and delivers email.', 'Every menu link, button and redirect goes where it should.', 'Search, filters and pagination behave with empty and large results.'],
                 ],
                 [
                     't' => 'h',
@@ -365,11 +339,7 @@ if ($valid && $order->status === \'pending\') {
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Successful, failed and cancelled payments update orders correctly.',
-                        'Database backups exist and a restore has been tried.',
-                        'Environment keys are set for production, not sandbox.',
-                    ],
+                    'c' => ['Successful, failed and cancelled payments update orders correctly.', 'Database backups exist and a restore has been tried.', 'Environment keys are set for production, not sandbox.'],
                 ],
                 [
                     't' => 'h',
@@ -377,11 +347,7 @@ if ($valid && $order->status === \'pending\') {
                 ],
                 [
                     't' => 'ul',
-                    'c' => [
-                        'Check phone, tablet and desktop widths.',
-                        'Confirm domain, SSL, redirects and cPanel settings.',
-                        'Check image sizes and page speed on a slow connection.',
-                    ],
+                    'c' => ['Check phone, tablet and desktop widths.', 'Confirm domain, SSL, redirects and cPanel settings.', 'Check image sizes and page speed on a slow connection.'],
                 ],
                 [
                     't' => 'p',
