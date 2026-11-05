@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Blog & Case Studies | Faisal Alam')
+@section('frontend_description', 'Practical guides, checklists and case studies on Laravel, WordPress, API integration and payment gateways by Faisal Alam.')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">

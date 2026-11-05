@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Projects | Faisal Alam')
+@section('frontend_description', 'Portfolio of 38+ Laravel and WordPress websites delivered by Faisal Alam for business, education, travel and finance clients.')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">
@@ -37,7 +38,7 @@
             <div data-projects-grid class="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
 
                 <!-- 1. Hongkong Nextgen -->
-                <a href="/projects/hongkong-nextgen" data-shot-host data-category="Laravel" data-search="hongkong nextgen b2b / electronics b2b corporate website for a global supplier of semiconductors, electronic components, it products and testing equipment. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
+                <a href="{{ route('projects.show', 'hongkong-nextgen') }}" data-shot-host data-category="Laravel" data-search="hongkong nextgen b2b / electronics b2b corporate website for a global supplier of semiconductors, electronic components, it products and testing equipment. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>hknextgenint.com</span></div>
@@ -65,7 +66,7 @@
                 </a>
 
                 <!-- 2. Euro Link -->
-                <a href="/projects/euro-link" data-shot-host data-category="Laravel" data-search="euro link education consultancy study abroad consultancy website covering university admissions, scholarships, study loans and student visa guidance. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
+                <a href="{{ route('projects.show', 'euro-link') }}" data-shot-host data-category="Laravel" data-search="euro link education consultancy study abroad consultancy website covering university admissions, scholarships, study loans and student visa guidance. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>eurolinkbd.com</span></div>
@@ -93,7 +94,7 @@
                 </a>
 
                 <!-- 3. Finact Advisory Training -->
-                <a href="/projects/finact-advisory-training" data-shot-host data-category="Laravel" data-search="finact advisory training finance &amp; training corporate website showcasing accounting, auditing, financial advisory and professional training services. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
+                <a href="{{ route('projects.show', 'finact-advisory-training') }}" data-shot-host data-category="Laravel" data-search="finact advisory training finance &amp; training corporate website showcasing accounting, auditing, financial advisory and professional training services. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>finactadvisory.com</span></div>
@@ -121,7 +122,7 @@
                 </a>
 
                 <!-- 4. Trip Travello -->
-                <a href="/projects/trip-travello" data-shot-host data-category="Laravel" data-search="trip travello travel &amp; visa travel services website with flight and hotel booking assistance plus student, tourist, medical and work permit visa services. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
+                <a href="{{ route('projects.show', 'trip-travello') }}" data-shot-host data-category="Laravel" data-search="trip travello travel &amp; visa travel services website with flight and hotel booking assistance plus student, tourist, medical and work permit visa services. php laravel mvc mysql responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>triptravello.com</span></div>
@@ -149,7 +150,7 @@
                 </a>
 
                 <!-- 5. Nebula Web Service -->
-                <a href="/projects/nebula-web-service" data-shot-host data-category="WordPress" data-search="nebula web service it services responsive it services website showcasing web development, digital marketing, it consulting and technology solutions. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
+                <a href="{{ route('projects.show', 'nebula-web-service') }}" data-shot-host data-category="WordPress" data-search="nebula web service it services responsive it services website showcasing web development, digital marketing, it consulting and technology solutions. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>web.nebulaitbd.com</span></div>
@@ -177,7 +178,7 @@
                 </a>
 
                 <!-- 6. Nebula Clipping Path -->
-                <a href="/projects/nebula-clipping-path" data-shot-host data-category="WordPress" data-search="nebula clipping path creative services wordpress website presenting photo editing, image retouching and clipping path services. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
+                <a href="{{ route('projects.show', 'nebula-clipping-path') }}" data-shot-host data-category="WordPress" data-search="nebula clipping path creative services wordpress website presenting photo editing, image retouching and clipping path services. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>nebulaclippingpath.com</span></div>
@@ -205,7 +206,7 @@
                 </a>
 
                 <!-- 7. Azwajun Fashion -->
-                <a href="/projects/azwajun-fashion" data-shot-host data-category="WordPress" data-search="azwajun fashion fashion fashion website showcasing clothing collections and product information with a responsive browsing experience. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
+                <a href="{{ route('projects.show', 'azwajun-fashion') }}" data-shot-host data-category="WordPress" data-search="azwajun fashion fashion fashion website showcasing clothing collections and product information with a responsive browsing experience. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>azwajunfashion.com</span></div>
@@ -233,7 +234,7 @@
                 </a>
 
                 <!-- 8. Study In New Zealand -->
-                <a href="/projects/study-in-new-zealand" data-shot-host data-category="WordPress" data-search="study in new zealand education consultancy international education consultancy website presenting study opportunities and guidance for prospective students. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
+                <a href="{{ route('projects.show', 'study-in-new-zealand') }}" data-shot-host data-category="WordPress" data-search="study in new zealand education consultancy international education consultancy website presenting study opportunities and guidance for prospective students. wordpress elementor responsive ui" class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
                     <div class="p-3 pb-0">
                         <div class="shot">
                             <div class="shot-bar"><i></i><i></i><i></i><span>studynewzealand.net</span></div>

@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', $project['title'] . ' | Faisal Alam')
+@section('frontend_description', $project['summary'])
 @section('frontend_contents')
 
     <section class="pt-10 pb-10">
@@ -23,7 +24,7 @@
                         <path stroke-linecap="round" stroke-linejoin="round" d="M7 17 17 7M8 7h9v9" />
                     </svg>
                 </a>
-                <a class="btn btn-ghost" href="/contact">Start a similar project</a>
+                <a class="btn btn-ghost" href="{{ route('contact') }}">Start a similar project</a>
             </div>
 
             <div class="mt-10 reveal">

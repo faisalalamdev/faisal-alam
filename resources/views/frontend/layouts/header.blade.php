@@ -1,5 +1,7 @@
 <header>
+
     <nav class="max-w-6xl mx-auto px-5 h-20 flex items-center justify-between gap-4">
+
         <a href="{{ route('home') }}" class="flex items-center" aria-label="Faisal Alam — Home">
             <img src="{{ asset('assets/frontend/images/logo-wordmark.png') }}" alt="Faisal Alam — Full Stack Developer" class="logo-light h-11 sm:h-16 w-auto">
             <img src="{{ asset('assets/frontend/images/logo-wordmark-light.png') }}" alt="Faisal Alam — Full Stack Developer" class="logo-dark h-11 sm:h-16 w-auto">
@@ -32,7 +34,9 @@
                 </svg>
             </button>
         </div>
+
     </nav>
+
     <div data-mobile-nav>
         <a href="{{ route('home') }}" class="{{ request()->routeIs('home') ? 'text-brand' : '' }}">Home</a>
         <a href="{{ route('about') }}" class="{{ request()->routeIs('about') ? 'text-brand' : '' }}">About</a>
@@ -42,4 +46,5 @@
         <a href="{{ route('blog') }}" class="{{ request()->routeIs('blog', 'blog.show') ? 'text-brand' : '' }}">Blog</a>
         <a href="{{ route('contact') }}" class="{{ request()->routeIs('contact') ? 'text-brand' : '' }}">Contact</a>
     </div>
+    
 </header>

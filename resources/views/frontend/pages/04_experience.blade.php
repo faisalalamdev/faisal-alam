@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'Experience & Education | Faisal Alam')
+@section('frontend_description', 'Work experience, education and professional training of Faisal Alam, Full Stack Web Developer with 4+ years of experience.')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">

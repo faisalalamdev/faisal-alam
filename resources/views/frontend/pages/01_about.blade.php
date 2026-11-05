@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', 'About | Faisal Alam')
+@section('frontend_description', 'About Faisal Alam, a Full Stack Web Developer from Dhaka, Bangladesh with 4+ years of experience in Laravel, WordPress, API and payment gateway integrations.')
 @section('frontend_contents')
 
     <section class="hero-bg pt-14 pb-8 border-b border-line">

@@ -9,7 +9,7 @@
                 <h2 class="h2 mt-2 reveal">Featured projects</h2>
             </div>
 
-            <a href="/projects" class="btn btn-ghost reveal">
+            <a href="{{ route('projects') }}" class="btn btn-ghost reveal">
                 All 38+ projects
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
                     <path stroke-linecap="round" stroke-linejoin="round" d="M5 12h14m-6-6 6 6-6 6" />
@@ -21,7 +21,7 @@
         <div class="grid md:grid-cols-2 gap-6">
 
             <!-- 1. Hongkong Nextgen -->
-            <a href="/projects/hongkong-nextgen" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
+            <a href="{{ route('projects.show', 'hongkong-nextgen') }}" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:0ms">
                 <div class="p-3 pb-0">
                     <div class="shot">
                         <div class="shot-bar"><i></i><i></i><i></i><span>hknextgenint.com</span></div>
@@ -49,7 +49,7 @@
             </a>
 
             <!-- 2. Euro Link -->
-            <a href="/projects/euro-link" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
+            <a href="{{ route('projects.show', 'euro-link') }}" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:90ms">
                 <div class="p-3 pb-0">
                     <div class="shot">
                         <div class="shot-bar"><i></i><i></i><i></i><span>eurolinkbd.com</span></div>
@@ -77,7 +77,7 @@
             </a>
 
             <!-- 3. Trip Travello -->
-            <a href="/projects/trip-travello" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
+            <a href="{{ route('projects.show', 'trip-travello') }}" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:180ms">
                 <div class="p-3 pb-0">
                     <div class="shot">
                         <div class="shot-bar"><i></i><i></i><i></i><span>triptravello.com</span></div>
@@ -105,7 +105,7 @@
             </a>
 
             <!-- 4. Nebula Web Service -->
-            <a href="/projects/nebula-web-service" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:270ms">
+            <a href="{{ route('projects.show', 'nebula-web-service') }}" data-shot-host class="card spot group block reveal hover:-translate-y-1" style="--d:270ms">
                 <div class="p-3 pb-0">
                     <div class="shot">
                         <div class="shot-bar"><i></i><i></i><i></i><span>web.nebulaitbd.com</span></div>

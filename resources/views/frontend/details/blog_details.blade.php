@@ -1,5 +1,6 @@
 @extends('frontend.dashboard')
 @section('frontend_title', $post['title'] . ' | Faisal Alam')
+@section('frontend_description', $post['excerpt'])
 @section('frontend_contents')
 
     <section class="pt-10 pb-10">
@@ -37,7 +38,7 @@
 
             <div class="max-w-2xl mx-auto mt-16 card p-6 reveal flex flex-wrap items-center justify-between gap-4">
                 <p class="font-semibold">Need help with a project like this?</p>
-                <a href="/contact" class="btn btn-primary"><span>Let's talk</span></a>
+                <a href="{{ route('contact') }}" class="btn btn-primary"><span>Let's talk</span></a>
             </div>
 
             <div class="grid sm:grid-cols-2 gap-4 mt-16">
