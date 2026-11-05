@@ -43,8 +43,6 @@
     @include('frontend.layouts.footer')
 
     <script src="{{ asset('assets/frontend/js/main.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/projects.js') }}"></script>
-    <script src="{{ asset('assets/frontend/js/blog.js') }}"></script>
     <script src="{{ asset('assets/frontend/js/pages.js') }}"></script>
 
 </body>
