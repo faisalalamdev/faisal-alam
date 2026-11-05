@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" width="800" height="500" role="img" aria-label="No image available">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#8a8fd8" stop-opacity=".26"/><stop offset="1" stop-color="#f0a080" stop-opacity=".2"/></linearGradient></defs>
+<rect width="800" height="500" fill="#8a8fc8" fill-opacity=".1"/><rect width="800" height="500" fill="url(#g)"/>
+<g fill="none" stroke="#8a8fc8" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" opacity=".85" transform="translate(400 215)">
+<rect x="-95" y="-68" width="190" height="136" rx="18"/><circle cx="-48" cy="-24" r="16"/><path d="M-95 42-34-6 18 34 50 8 95 46"/></g>
+<text x="400" y="350" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="30" font-weight="600" fill="#8a8fc8">No image</text>
+<text x="400" y="386" text-anchor="middle" font-family="Inter,Arial,sans-serif" font-size="17" fill="#8a8fc8" opacity=".75">Image not available</text></svg>
